@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Estudo Knockoutjs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <a class="navbar-brand" href="index.html">ESTUDO KNOCKOUT</a>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>Observables</h2>
+                The name is <span data-bind="text: personName"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" id="matrizes">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>Arrays []</h2>
+                <p>The length of the array is <span data-bind="text: addItem().length"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" data-bind="visible: shouldShowMessage">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>Visible</h2>
+                <p>The length of the array is <span data-bind="text: addItem().length"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" data-bind="hidden: showHidden">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>Hidden</h2>
+                <p>The length of the array is <span data-bind="text: addItem().length"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" data-bind="hidden: showHidden">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>Text</h2>
+                <p>Test using text data-bind, text is: <span class="font-weight-bold" data-bind="text: myMessage"></span></p>
+                <p>The length of the array is <span data-bind="text: price() > 50 ? 'Maior' : 'Menor' "></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" data-bind="hidden: showHidden">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>HTML</h2>
+                <div data-bind="html: details"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" data-bind="hidden: showHidden">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>Class CSS</h2>
+                <div data-bind="css: { success: currentProfit() > 0 }">
+                    Esta class está com CSS dinâmico
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" data-bind="hidden: showHidden">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>Estilo CSS</h2>
+                <div data-bind="style: { color: style > 0 ? 'green' : 'red' }">
+                    Este estilo está com CSS dinâmico
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" data-bind="hidden: showHidden">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>ATTR</h2>
+                <div data-bind="css: 'text-success font-weight-bold'">
+                    <a data-bind="attr: { href: url, title: details  }, text: details"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" data-bind="hidden: showHidden">
+        <div class="card p-3">
+            <div class="text-center">
+                <h2>foreach</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: people">
+                        <tr>
+                            <td data-bind="text: firstName"></td>
+                            <td data-bind="text: lastName"></td>
+                            <td>
+                                <a data-bind="click: $parent.removePeople">Remover</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" data-bind="click: addPeople">Adicionar Pessoa</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <!-- ko foreach: months -->
+                <li>
+                    The current item is: <b data-bind="text: $data"></b>
+                </li>
+                <!-- /ko -->
+            </div>
+
+            <div class="text-center mt-3">
+                <!-- ko foreach: myItems -->
+                <li>Item <span data-bind="text: $data"></span></li>
+                <!-- /ko -->
+            </div>
+
+        </div>
+
+        <div class="container mt-5" data-bind="hidden: showHidden">
+            <div class="card p-3">
+                <div class="text-center">
+                    <h2>IF</h2>
+                    <label><input type="checkbox" data-bind="checked: displayMessage" /> Display message</label>
+                    <div data-bind="if: displayMessage">Here is a message. Astonishing.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</html>

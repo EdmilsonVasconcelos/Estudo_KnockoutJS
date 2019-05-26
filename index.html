@@ -154,6 +154,46 @@
             </div>
         </div>
 
+        <div class="container mt-5">
+            <div class="card p-3">
+                <div class="text-center">
+                    <h1 data-bind="text: city"> </h1>
+                    <p data-bind="using: coords">
+                        Latitude: <span data-bind="text: latitude"> </span>,
+                        Longitude: <span data-bind="text: longitude"> </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="card p-3">
+                <div class="text-center">
+                    <h2>CLICK</h2>
+                    <div>
+                        You've clicked <span data-bind="text: numberOfClicks"></span> times
+                        <button class="btn btn-primary" data-bind="click: incrementClickCounter">Click me</button>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <div data-bind="foreach: places">
+                        <span data-bind="text: $data"></span>
+                        <button class="btn btn-warning" data-bind="click: $parent.removePlace">Remove</button>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <button class="btn btn-success" data-bind="click: myFunction">
+                        Click me
+                    </button>
+                </div>
+                <div class="text-center mt-5">
+                    <button data-bind="click: myFunction.bind('param1', 'param2')">
+                        Click me
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>

@@ -31,7 +31,29 @@ var myViewModel = {
     },
     months: ko.observableArray([ 'Jan', 'Feb', 'Mar', 'etc' ]),
     myItems: ko.observableArray([ 'A', 'B', 'C' ]),
-    displayMessage: ko.observable(false)
+    displayMessage: ko.observable(false),
+    city: "London",
+    coords: {
+        latitude:  51.5001524,
+        longitude: -0.1262362
+    },
+    numberOfClicks : ko.observable(0),
+    incrementClickCounter: function() {
+        this.numberOfClicks(this.numberOfClicks() + 1)
+    },
+    places: ko.observableArray(['London', 'Paris', 'Tokyo']),
+    removePlace: function(place) {
+        console.log(place)
+    },
+    myFunction: function(para1, para2) {
+        console.log(para1)
+        console.log(para2)
+        if (event.shiftKey) {
+            //do something different when user has shift key down
+        } else {
+            //do normal action
+        }
+    }
 }
 
 //Para ler o valor atual do observável, basta chamar o observável sem parâmetros. Neste exemplo, myViewModel.personName()
